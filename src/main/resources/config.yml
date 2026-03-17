@@ -1,0 +1,9 @@
+# ─────────────────────────────────────────
+#   GoldEconomy Configuration
+# ─────────────────────────────────────────
+
+# Starting balance for brand new players
+starting-balance: 0.0
+
+# Trade request timeout in seconds
+trade-request-timeout: 60
