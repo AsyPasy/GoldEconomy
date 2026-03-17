@@ -1,0 +1,32 @@
+name: GoldEconomy
+version: '1.0.0'
+main: com.goldeconomy.GoldEconomy
+api-version: '1.20'
+authors: [ Author ]
+description: Gold coin economy with player trading.
+
+commands:
+  gold:
+    description: Admin gold management
+    usage: /gold <give|take|set|balance|withdraw> <player> [amount]
+    permission: goldeconomy.admin
+  balance:
+    description: Check your gold balance
+    usage: /balance [player]
+    aliases: [ bal ]
+    permission: goldeconomy.balance
+  trade:
+    description: Trade with another player
+    usage: /trade <player>
+    permission: goldeconomy.trade
+
+permissions:
+  goldeconomy.admin:
+    description: Admin gold commands
+    default: op
+  goldeconomy.balance:
+    description: Check balance
+    default: true
+  goldeconomy.trade:
+    description: Trade with others
+    default: true
