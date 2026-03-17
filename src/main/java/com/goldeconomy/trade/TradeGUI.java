@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
+import java.util.UUID;
 
 public class TradeGUI {
 
@@ -37,11 +38,9 @@ public class TradeGUI {
     // ── Static layout ─────────────────────────────────────────────────────────
 
     static void fillStaticElements(Inventory inv) {
-        // Divider column (4, 13, 22, 31, 40, 49)
         ItemStack div = pane(Material.GRAY_STAINED_GLASS_PANE, "§7──────");
-        for (int s : new int[]{4,13,22,31,40,49}) inv.setItem(s, div);
+        for (int s : new int[]{4, 13, 22, 31, 40, 49}) inv.setItem(s, div);
 
-        // Black filler for unused bottom corners
         ItemStack black = pane(Material.BLACK_STAINED_GLASS_PANE, "§r");
         for (int s : new int[]{28,29,30,32,33,34,37,38,39,41,42,43,46,47,48,50,51,52,53})
             inv.setItem(s, black);
@@ -58,10 +57,10 @@ public class TradeGUI {
         ItemMeta  ym       = yourItem.getItemMeta();
         ym.setDisplayName("§6Your Gold Offer: §e" + String.format("%.0f", yourGold));
         ym.setLore(List.of(
-            "§eLeft click:   §7+1 gold",
-            "§eRight click:  §7-1 gold",
-            "§eShift + Left: §7+10 gold",
-            "§eShift + Right:§7-10 gold"
+            "§eLeft click:    §7+1 gold",
+            "§eRight click:   §7-1 gold",
+            "§eShift + Left:  §7+10 gold",
+            "§eShift + Right: §7-10 gold"
         ));
         yourItem.setItemMeta(ym);
         inv.setItem(TradeSession.SLOT_YOUR_GOLD, yourItem);
@@ -82,7 +81,7 @@ public class TradeGUI {
         boolean theirReady = session.isReady(session.getOther(viewerUuid));
 
         // Slot 36: your ready
-        ItemStack yr = new ItemStack(yourReady ? Material.LIME_DYE : Material.RED_DYE);
+        ItemStack yr  = new ItemStack(yourReady ? Material.LIME_DYE : Material.RED_DYE);
         ItemMeta  yrm = yr.getItemMeta();
         yrm.setDisplayName(yourReady ? "§a§l✔ YOU ARE READY" : "§c§l✗ NOT READY");
         yrm.setLore(List.of(yourReady ? "§7Click to un-ready." : "§7Click when happy with the trade."));
